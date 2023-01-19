@@ -1,6 +1,7 @@
 // setup interface to handle user input from stdin
 const stdin = process.stdin;
 let connection;
+let keys = [];
 
 const setupInput = function (conn) {
   connection = conn;
@@ -13,10 +14,15 @@ const setupInput = function (conn) {
 
 const handleUserInput = function (key) {
   //console.log(key);
-  let keys = [];
 
-  if (key === '\u2386') {
 
+  if (!"wasd".includes(key) && key !== '\u000d') {
+    keys.push(key);
+  }
+
+  if (key === '\u000d') {
+    connection.write("Say: "+keys.join(""));
+    keys = [];
   }
 
 
