@@ -9,7 +9,8 @@ const connect = () => {
   // interpret incoming data as text
   conn.setEncoding("utf8");
   conn.on("connect", () => {
-    console.log("connected to server")
+    console.log("Connected to server successfully")
+    conn.write("Name: ZAA")
   });
   conn.on("data", (data) => {
     console.log(data);
