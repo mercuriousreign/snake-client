@@ -1,10 +1,12 @@
 // establishes a connection with the game server
 const net = require("net");
-const { setTimeout, setInterval } = require("timers/promises");
-const connect = () => {
+//const { setTimeout, setInterval } = require("timers/promises");
+const { IP,PORT } = require("./constants");
+
+const connect = (ip = IP,port = PORT) => {
   const conn = net.createConnection({
-    host: "165.227.47.243",
-    port: 50541
+    host: ip,
+    port: port
   });
 
   // interpret incoming data as text
@@ -13,9 +15,9 @@ const connect = () => {
 
     console.log("Connected to server successfully");
     conn.write("Name: ZAa");
-    conn.write("Move: up");
+    //conn.write("Move: up");
 
-    // setTimeout(conn.write("Move: up"),400);
+    //setTimeout(conn.write("Move: up"),400);
     // setInterval(conn.write("Move: left"),700);
     // setInterval(conn.write("Move: down"),900);
 
@@ -53,7 +55,7 @@ const connect = () => {
   //   })
   // },1000);
 
-  setTimeout(clearInterval(), 7000);
+  //setTimeout(clearInterval(), 7000);
 
 
   // setTimeout(conn.on("connect", () => {
@@ -68,7 +70,7 @@ const connect = () => {
   //   conn.write("Move: Right");
   // }), 500)
 
-  setTimeout(()=>{clearInterval()}, 7000);
+  //setTimeout(()=>{clearInterval()}, 7000);
 
 
 
@@ -77,4 +79,4 @@ const connect = () => {
 
 module.exports = {
   connect,
-}
+};

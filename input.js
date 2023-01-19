@@ -3,7 +3,7 @@ const stdin = process.stdin;
 let connection;
 let keys = [];
 
-const setupInput = function (conn) {
+const setupInput = function(conn) {
   connection = conn;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
@@ -12,7 +12,7 @@ const setupInput = function (conn) {
 };
 
 
-const handleUserInput = function (key) {
+const handleUserInput = function(key) {
   //console.log(key);
 
 
@@ -21,27 +21,27 @@ const handleUserInput = function (key) {
   }
 
   if (key === '\u000d') {
-    connection.write("Say: "+keys.join(""));
+    connection.write("Say: " + keys.join(""));
     keys = [];
   }
 
 
-  if (key==='w') {
+  if (key === 'w') {
     //console.log(key);
     connection.write("Move: up");
   }
 
-  if (key==='a') {
+  if (key === 'a') {
     //console.log(key);
     connection.write("Move: left");
   }
 
-  if (key==='s') {
+  if (key === 's') {
     //console.log(key);
     connection.write("Move: down");
   }
 
-  if (key==='d') {
+  if (key === 'd') {
     //console.log(key);
     connection.write("Move: right");
     
@@ -53,8 +53,10 @@ const handleUserInput = function (key) {
   }
 };
 
-stdin.on("data", (data) => {handleUserInput(data)} );
+stdin.on("data", (data) => {
+  handleUserInput(data);
+});
 
 module.exports = {
   setupInput,
-}
+};
