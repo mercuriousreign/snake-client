@@ -13,24 +13,31 @@ const setupInput = function (conn) {
 
 const handleUserInput = function (key) {
   //console.log(key);
+  let keys = [];
+
+  if (key === '\u2386') {
+
+  }
+
+
   if (key==='w') {
-    console.log(key);
-    //connection.write("Move: up");
+    //console.log(key);
+    connection.write("Move: up");
   }
 
   if (key==='a') {
-    console.log(key);
-    //connection.write("Move: left");
+    //console.log(key);
+    connection.write("Move: left");
   }
 
   if (key==='s') {
-    console.log(key);
-    //connection.write("Move: down");
+    //console.log(key);
+    connection.write("Move: down");
   }
 
   if (key==='d') {
-    console.log(key);
-    //connection.write("Move: right");
+    //console.log(key);
+    connection.write("Move: right");
     
   }
   //Exit process if Ctrl+C is the input
