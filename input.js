@@ -11,10 +11,7 @@ const setupInput = function(conn) {
   return stdin;
 };
 
-
 const handleUserInput = function(key) {
-  //console.log(key);
-
 
   if (!"wasd".includes(key) && key !== '\u000d') {
     keys.push(key);
@@ -27,22 +24,18 @@ const handleUserInput = function(key) {
 
 
   if (key === 'w') {
-    //console.log(key);
     connection.write("Move: up");
   }
 
   if (key === 'a') {
-    //console.log(key);
     connection.write("Move: left");
   }
 
   if (key === 's') {
-    //console.log(key);
     connection.write("Move: down");
   }
 
   if (key === 'd') {
-    //console.log(key);
     connection.write("Move: right");
     
   }
